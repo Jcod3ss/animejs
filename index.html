@@ -1,0 +1,31 @@
+<script src="https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.umd.min.js"></script>
+<script>
+  /* global anime */
+
+  function setup () {
+    const el = document.createElement('div')
+    el.textContent = 'Hellooo-_-'
+    el.style.fontSize = '100px'
+    el.style.margin = '40px auto'
+    el.style.width = 'fit-content'
+    document.body.appendChild(el)
+    
+    const { chars } = anime.splitText(el, { 
+      words: false, 
+      chars: true
+    })
+    
+    anime.animate(chars, {
+      y: [
+        { to: '-3.75rem', ease: 'outExpo', duration: 200 },
+        { to: 5, ease: 'outBounce', duration: 900, delay: 100 }
+      ],
+      rotate: { from: '360deg', delay: 50 },
+      delay: anime.stagger(80),
+      loopDelay: 1500,
+      loop: true
+    })
+  }
+
+  window.addEventListener('load', setup)
+</script>
